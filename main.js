@@ -64,17 +64,26 @@ const menu = [
         });
         
     });
-        // aca hay algo que estoy haciendo mal, no me doy cuenta ahora, espero para corregirlo en la reentrega
-
+       
     verCarrito.addEventListener("click", () => {
+        contenidoCarrito.innerHTML = ""; 
         
-         console.log(funciona);
-      });
-        const total = carrito.reduce((e, producto) => e + producto.precio, 0);
+        let total = 0; 
         
+        carrito.forEach((producto) =>{
+            let contenidoProducto = document.createElement("div");
+            contenidoProducto.innerHTML = `
+                <h3> ${producto.nombre} </h3>
+                <p> $ ${producto.precio} </p>`;
+            contenidoCarrito.appendChild(contenidoProducto);
+            
+            total += producto.precio; 
+        });
+    
         const totalAPagar = document.createElement("div");
-        totalAPagar.innerHTML= `Total a pagar: $ ${total}`;
-      
+        totalAPagar.innerHTML = `Total a pagar: $ ${total}`;
+        contenidoCarrito.appendChild(totalAPagar);
+    });
       
     
           
