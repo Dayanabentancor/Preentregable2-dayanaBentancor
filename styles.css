@@ -13,6 +13,7 @@
 }
 .carrito{
     margin-right: 1%;
+    cursor: pointer;
     
 }
 .banner{
@@ -47,4 +48,17 @@
     margin-top: 30px;
     margin-left: 80px;
     margin-right: 80px;
+}
+
+.cantidad-carrito { 
+
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 4px;
+    top: 37px;
+    right: 14px;
+    position: absolute;
+    display: none;
 }
