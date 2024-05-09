@@ -1,0 +1,29 @@
+[
+    {
+        "nombre": "Chivito",
+        "precio": 250,
+        "img": "./elementos/chivito.webp",
+        "cantidad": 1
+    },
+    {
+        "nombre": "Pizza",
+        "cantidad": 1,
+        "img": "./elementos/pizza.jpg",
+        "precio": 300
+    },
+    {
+        "nombre": "Napolitana",
+        "precio": 250,
+        "img": "./elementos/milanesa-napolitana.jpg",
+        "cantidad": 1
+
+    
+    },
+    {
+        "nombre": "Hamburguesas",
+        "precio": 280,
+        "img": "./elementos/hamburguesa.jpeg",
+        "cantidad": 1
+    }
+    
+    ]

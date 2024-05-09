@@ -3,37 +3,20 @@ const verCarrito = document.getElementById("verCarrito");
 const contenidoCarrito = document.getElementById("contenidoCarrito");
 const cantidadCarrito = document.getElementById("cantidadCarrito");
 
-const menu = [
-    {
-        nombre: "Chivito",
-        precio: 250,
-        cantidad: 1,
-    },
-    {
-        nombre: "Pizza",
-        precio: 300,
-        cantidad: 1,
-    },
-    {
-        nombre: "Napolitana",
-        precio: 250,
-        cantidad: 1,
-    },
-    {
-        nombre: "Hamburguesas",
-        precio: 280,
-        cantidad: 1,
-    },
-    
-    ];
-    
+
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     
-    menu.forEach((producto) =>{
+const getproducts = async () => {
+    const respuesta = await fetch ("productos.json");
+    const data = await respuesta.json();
+    console.log(data);
+
+    data.forEach((producto) =>{
         let content = document.createElement("div");
         content.className = "cards";
         content.innerHTML = `
         <h3> ${producto.nombre}</h3>
+        <img src= "${producto.img}">
         <p class= "price"> $ ${producto.precio}</p>
         `;
         
@@ -50,6 +33,7 @@ const menu = [
                nombre: producto.nombre,
                precio: producto.precio,
                cantidad: producto.cantidad,
+               img: producto.img,
             });
             console.log(carrito);
             mostrarCarrito();
@@ -65,8 +49,9 @@ const menu = [
             let contenidoCarrito = document.createElement("div");
             contenidoCarrito.innerHTML= `
             <h3> ${producto.nombre} </h3>
+            <img src= ${producto.img}>
             <p> $ ${producto.precio} </p>
-            <p> $ ${producto.cantidad} </p>`;
+            <p>  ${producto.cantidad} </p>`;
             
            
         });
@@ -82,6 +67,7 @@ const menu = [
             let contenidoProducto = document.createElement("div");
             contenidoProducto.innerHTML = `
                 <h3> ${producto.nombre} </h3>
+                <img src= ${producto.img}>
                 <p> $ ${producto.precio} </p>
                 <p> ${producto.cantidad} </p>`;
             contenidoCarrito.appendChild(contenidoProducto);
@@ -94,6 +80,10 @@ const menu = [
         contenidoCarrito.appendChild(totalAPagar);
     });
       
+};
+getproducts();
+
+    
     
           
         
